@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <h2>Message Board</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr class="success">
+            <th>Message</th>
+            <th>PRESS Like</th>
+            <th>Number of likes</th>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="info" th:each="eachRecipi:${messagelist}">
+
+            <td  th:text="${eachRecipi.messageContainer}"></td>
+            <td> <a th:href="@{/redirect/{id}(id=${eachRecipi.id})}">LIKE</a> </td>
+            <td th:text="${eachRecipi.getLikeCount()}"> </td>
+
+        </tr>
+
+
+        </tbody>
+    </table>
+    <a th:href="@{/addmessage}">ADD MESSAGE</a>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
